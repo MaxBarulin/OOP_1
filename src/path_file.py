@@ -17,7 +17,10 @@ def create_object_from_json(file: list[dict]) -> list:
     for obj in file:
         products = []
         for product in obj["products"]:
-            products.append(Product(**product))
+            if isinstance(product, dict):
+                products.append(Product(**product))
+            else:
+                products.append(product)
         obj["products"] = products
         category.append(Category(**obj))
     return category
@@ -26,3 +29,9 @@ def create_object_from_json(file: list[dict]) -> list:
 if __name__ == "__main__":
     files = read_json_file("../data/products.json")
     print(create_object_from_json(files))
+    print(create_object_from_json(files)[0].name)
+    print(create_object_from_json(files)[1].name)
+    print(create_object_from_json(files)[0].products)
+
+
+
