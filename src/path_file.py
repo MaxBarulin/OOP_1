@@ -32,6 +32,4 @@ if __name__ == "__main__":
     print(create_object_from_json(files)[0].name)
     print(create_object_from_json(files)[1].name)
     print(create_object_from_json(files)[0].products)
-
-
-
+    print(create_object_from_json(files)[1].products[0].name)
