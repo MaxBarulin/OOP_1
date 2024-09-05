@@ -22,7 +22,10 @@ class Product:
 
     @price.setter
     def price(self, prices):
-        if prices < self.__price:
+        if prices <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        elif prices < self.__price:
             print(f"Вы точно хотите понизить цену с {self.__price} до {prices}? y/n\n")
             user = input()
             if user == "y":
