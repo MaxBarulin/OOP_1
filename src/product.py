@@ -1,4 +1,5 @@
 class Product:
+    """Класс для создания класса продуктов"""
 
     def __init__(self, name: str, description: str, price: float, quantity: int):
         """Инициализация класса с атрибутами продукта"""
@@ -7,8 +8,18 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self) -> str:
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other) -> object:
+        """Метод для подсчета общей суммы всех продуктов в данном классе"""
+        self.total = self.__price * self.quantity
+        self.total += other.__price * other.quantity
+        return self.total
+
     @classmethod
-    def new_product(cls, params_product: dict):
+    def new_product(cls, params_product: dict) -> object:
+        """Метод создания нового класса product"""
         return cls(
             name=params_product["name"],
             description=params_product["description"],
@@ -17,11 +28,12 @@ class Product:
         )
 
     @property
-    def price(self):
+    def price(self) -> object:
         return self.__price
 
     @price.setter
-    def price(self, prices):
+    def price(self, prices) -> None:
+        """Метод контроля изменения цены"""
         if prices <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
