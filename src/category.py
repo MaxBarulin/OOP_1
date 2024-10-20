@@ -1,7 +1,8 @@
 from src.product import Product
+from src.base_category import BaseCategory
 
 
-class Category:
+class Category(BaseCategory):
     category_count: int = 0
     product_count: int = 0
 
