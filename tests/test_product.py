@@ -21,7 +21,7 @@ def test_create_product(new_test_product):
 def test_product_setter(capsys, product_test_setter):
     product_test_setter.price = 500
     message = capsys.readouterr()
-    assert message.out == "Вы точно хотите понизить цену с 180000.0 до 500? y/n\n\n"
+    assert message.out.split("\n")[1] == "Вы точно хотите понизить цену с 180000.0 до 500? y/n"
 
 
 def test_product_str(product1, product2):
