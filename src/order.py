@@ -6,6 +6,8 @@ from src.product import Product
 class Order(BaseCategory):
 
     def __init__(self, product: Product):
+        if product.quantity <= 0:
+            raise ...
         self.product = product
 
     def __str__(self) -> str:
@@ -23,9 +25,11 @@ class Order(BaseCategory):
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
-    category1 = Category("Смартфоны",
-                         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-                         [product1])
+    category1 = Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        [product1],
+    )
 
     order1 = Order(product1)
     print(order1)
