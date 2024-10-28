@@ -45,7 +45,7 @@ pip-delete-this-directory.txt
 .cache
 nosetests.xml
 coverage.xml
-/htmlcov
+#/htmlcov
 *.cover
 *.py,cover
 .hypothesis/
@@ -68,7 +68,8 @@ instance/
 
 # Scrapy stuff:
 .scrapy
-
+.gitignore
+/.gitignore
 # Sphinx documentation
 docs/_build/
 

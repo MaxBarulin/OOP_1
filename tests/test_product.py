@@ -2,6 +2,7 @@ import pytest
 
 from src.product import Product
 from src.exception_quantity import ExceptionQuantity
+from unittest.mock import patch
 
 
 def test_init_product(product1, product2):
@@ -26,9 +27,24 @@ def test_create_product(new_test_product):
 
 
 def test_product_setter(capsys, product_test_setter):
-    product_test_setter.price = 500
-    message = capsys.readouterr()
-    assert message.out.split("\n")[1] == "Вы точно хотите понизить цену с 180000.0 до 500? y/n"
+    with patch('src.product.input', return_value='y'):
+        product_test_setter.price = 500
+        message = capsys.readouterr()
+        assert message.out.split("\n")[1] == "Вы точно хотите понизить цену с 180000.0 до 500? y/n"
+
+
+def test_product_setter_negative(capsys, product_test_setter):
+    with patch('src.product.input', return_value='y'):
+        product_test_setter.price = -1
+        message = capsys.readouterr()
+        assert message.out.split("\n")[1] == "Цена не должна быть нулевая или отрицательная"
+
+
+def test_product_setter_null(capsys, product_test_setter):
+    with patch('src.product.input', return_value='y'):
+        product_test_setter.price = 0
+        message = capsys.readouterr()
+        assert message.out.split("\n")[1] == "Вы точно хотите понизить цену с 180000.0 до 0? y/n"
 
 
 def test_product_str(product1, product2):

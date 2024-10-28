@@ -22,14 +22,15 @@ class Order(BaseCategory):
         return f"Название: {total_name}, кол-во: {total_quantity} шт, итого: {total_sum} руб."
 
 
-if __name__ == "__main__":
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-
-    category1 = Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1],
-    )
-
-    order1 = Order(product1)
-    print(order1)
+# if __name__ == "__main__":
+#     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+#
+#     print(product1.name)
+#     category1 = Category(
+#         "Смартфоны",
+#         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+#         [product1],
+#     )
+#
+#     order1 = Order(product1)
+#     print(f"{order1.product}")

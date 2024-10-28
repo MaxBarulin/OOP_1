@@ -29,6 +29,7 @@ def category1(product1, product2):
                     "но и получения дополнительных функций для удобства жизни",
                     [product1, product2])
 
+
 @pytest.fixture
 def new_test_product():
     return {
@@ -61,6 +62,8 @@ def test_smartphone1():
                       "S23 Ultra",
                       256,
                       "Серый")
+
+
 @pytest.fixture
 def test_smartphone2():
     return Smartphone("Iphone 15",
@@ -71,6 +74,8 @@ def test_smartphone2():
                       "15",
                       512,
                       "Gray space")
+
+
 @pytest.fixture
 def test_grass1():
     return LawnGrass("Газонная трава",
@@ -80,6 +85,8 @@ def test_grass1():
                      "Россия",
                      "7 дней",
                      "Зеленый")
+
+
 @pytest.fixture
 def test_grass2():
     return LawnGrass("Газонная трава 2",
@@ -89,6 +96,14 @@ def test_grass2():
                      "США",
                      "5 дней",
                      "Темно-зеленый")
+
+
+@pytest.fixture
+def category_none_products():
+    return Category("Смартфоны",
+                    "Смартфоны, как средство не только коммуникации, "
+                    "но и получения дополнительных функций для удобства жизни",
+                    [])
 
 
 @pytest.fixture
