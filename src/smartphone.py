@@ -11,7 +11,8 @@ class Smartphone(Product):
             efficiency: float,
             model: str,
             memory: int,
-            color: str):
+            color: str,
+    ):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
